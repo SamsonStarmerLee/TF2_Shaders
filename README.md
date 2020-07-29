@@ -91,7 +91,7 @@ You can see here how the Heavy's specular allows his bald head to appear shiny, 
 <details>
 <summary>Expand</summary>
 
-![Depth](Images/Depth-Based Application.png)
+![Depth](Images/DepthMask.png)
 
 [This section](https://youtu.be/ebvbVO1QE5o?t=106) of the rendering video states that only characters are rendered in this style, with the world geometry being mostly diffuse textures. 
 To support this isolated application of the effect, we cannot rely on applying materials to specific objects, as we are using a post-process effect. Instead,
