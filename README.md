@@ -32,6 +32,7 @@ We do not have this in deferred rendering, so the closest we can get to a pure r
 
 ![Divided Lighting](Images/Divided_Lighting.png)
 
+
 This lighting then passes through a LUT texture to create the typical cell-shading dramatic terminator:
 
 ![LUT](Images/LightingLUT.png)
@@ -92,7 +93,7 @@ You can see here how the Heavy's specular allows his bald head to appear shiny, 
 
 ![Depth](Images/Depth-Based Application.png)
 
-This [this video](https://youtu.be/ebvbVO1QE5o?t=106) about TF2's rendering, its stated that only characters are rendered in this style, with the world geometry being mostly diffuse textures. 
+[This section](https://youtu.be/ebvbVO1QE5o?t=106) of the rendering video states that only characters are rendered in this style, with the world geometry being mostly diffuse textures. 
 To support this isolated application of the effect, we cannot rely on applying materials to specific objects, as we are using a post-process effect. Instead,
 we can only process objects that draw to custom depth.
 
@@ -103,6 +104,8 @@ we can only process objects that draw to custom depth.
 ![Process](Images/Process.png)
 
 ### TODO
+
+As you can see in the above image, the final appearance of the Medic is somewhat over-exposed. UE4 has a tendency to apply eye adjustment and bloom effects liberally, which clash with TF2's flat artistic style. I have not adjusted these, but reducing those effects would create a more illustrative style. Because this post-processing effect is applied before tonemapping, that is another thing that could be adjusted to affect the final result.
 
 Because lighting is desaturated before being applied, coloured lighting does not work, nor does it affect the rim or phong lighting.
 
