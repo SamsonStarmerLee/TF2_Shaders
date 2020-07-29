@@ -2,8 +2,18 @@
 
 ![Cast](Images/Cast.png)
 
+This is a post-processing approach to creating a similar rendering style to Valve's Team Fortress 2. Because Unreal Engine 4 uses deferred rendering, this method necessarily differs from the one given in Valve's 2007 paper on the topic.
+
+See the paper and accompanying video:
+
+[Illustrative Rendering in Team Fortress 2 | Paper](https://valvearchive.com/archive/Other%20Files/Publications/NPAR07_IllustrativeRenderingInTeamFortress2.pdf)
+
+[Illustrative Rendering in Team Fortress 2 | Video](https://youtu.be/ebvbVO1QE5o)
+
+---
+
 <details>
-<summary>Expand to see the entire graph</summary>
+<summary>Expand to see the entire post-processing material graph</summary>
   
 ![Graph](Images/Graph.png)
 </details>
@@ -22,11 +32,11 @@ We do not have this in deferred rendering, so the closest we can get to a pure r
 
 ![Divided Lighting](Images/Divided_Lighting.png)
 
-This lighting passes through a LUT texture:
+This lighting then passes through a LUT texture to create the typical cell-shading dramatic terminator:
 
 ![LUT](Images/LightingLUT.png)
 
-This thin band of colour transition causes some of the cell-shading effect, a "dramatic terminator" observed in commercial illustration.
+This creates the thin band of colour transition observed in commercial illustration.
 In addition to shaping the lighting, this particular texture colourizes lighting, transitioning from greyscale, through a reddish region in the middle, towards a cool dark region.
 
 </details>
@@ -62,11 +72,11 @@ Like the issues discussed earlier with lambertian lighting, we have no access to
 
 ![Interior Detailing](Images/Interior_Detailing.png)
 
-In this scene, the characters are without weapons, so the effect is most noticable on leather surfaces, such as boots:
+In this scene, the characters are without weapons, so the effect is most noticeable on leather surfaces, such as boots:
 
 ![On Off](Images/PseudoPhong_OnOff.png)
 
-To prevent non-reflective surfaces from recieving these highlights, we use each charater's specular map to mask the effect.
+To prevent non-reflective surfaces from receiving these highlights, we use each character's specular map to mask the effect.
 You can see here how the Heavy's specular allows his bald head to appear shiny, but not the interior of his face where bright highlights would look strange.
 
 ![Specular](Images/Specular_Heavy.png)
